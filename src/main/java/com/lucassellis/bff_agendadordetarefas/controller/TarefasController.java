@@ -5,7 +5,7 @@ import com.lucassellis.bff_agendadordetarefas.business.TarefaService;
 import com.lucassellis.bff_agendadordetarefas.business.dto.in.TarefasDTORequest;
 import com.lucassellis.bff_agendadordetarefas.business.dto.out.TarefasDTOResponse;
 import com.lucassellis.bff_agendadordetarefas.business.enums.StatusNotificacaoEnum;
-import com.lucassellis.bff_agendadordetarefas.infrastructure.client.Security.SecurityConfig;
+import com.lucassellis.bff_agendadordetarefas.infrastructure.Security.SecurityConfig;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -13,7 +13,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -44,6 +43,8 @@ public class TarefasController {
     // essa parte aqui é o swagger "a tal da documentação"
     @ApiResponse(responseCode = "200", description = "Tarefas encontradas")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "401", description = "Usuário  não autorizado")
+
 
     public ResponseEntity<List<TarefasDTOResponse>> buscaListaDeTarefasPorPeriodo(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
@@ -58,6 +59,10 @@ public class TarefasController {
     // essa parte aqui é o swagger "a tal da documentação"
     @ApiResponse(responseCode = "200", description = "Tarefas encontradas")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "403", description = "Email  não encontrado")
+    @ApiResponse(responseCode = "401", description = "Usuário  não autorizado")
+
+
 
     public ResponseEntity<List<TarefasDTOResponse>> buscaTarefasPorEmail(@RequestHeader("Authorization") String token) {
         List<TarefasDTOResponse> tarefas = tarefaService.buscaTarefasPorEmail(token);
@@ -69,6 +74,10 @@ public class TarefasController {
             description = "Deleta tarefas cadastradas por Id") // essa parte aqui é o swagger "a tal da documentação"
     @ApiResponse(responseCode = "200", description = "Tarefas deletadas")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "403", description = "Tarefa id não encontrada")
+    @ApiResponse(responseCode = "401", description = "Usuário  não autorizado")
+
+
 
     public ResponseEntity<Void> deletaTarefaPorId(@RequestParam("id") String id,
                                                   @RequestHeader(name="Authorization", required = false) String token) {
@@ -84,6 +93,11 @@ public class TarefasController {
     // essa parte aqui é o swagger "a tal da documentação"
     @ApiResponse(responseCode = "200", description = "Status da tarefa alterado")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "403", description = "Tarefa id não encontrada")
+    @ApiResponse(responseCode = "401", description = "Usuário  não autorizado")
+
+
+
 
     public ResponseEntity<TarefasDTOResponse> alteraStatusNotificacao(
 
@@ -100,6 +114,10 @@ public class TarefasController {
     // essa parte aqui é o swagger "a tal da documentação"
     @ApiResponse(responseCode = "200", description = "Tarefas alteradas")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "403", description = "Tarefa id não encontrada")
+    @ApiResponse(responseCode = "401", description = "Usuário  não autorizado")
+
+
 
     public ResponseEntity<TarefasDTOResponse> updateTarefas(@RequestBody TarefasDTORequest dto,
                                                             @RequestParam("id") String id,

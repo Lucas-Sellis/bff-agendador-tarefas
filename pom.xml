@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lucassellis</groupId>
-	<artifactId>bff-agendadordetaredas</artifactId>
+	<artifactId>bff-agendadordetarefas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bff-agendadordetaredas</name>
+	<name>bff-agendadordetarefas</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
