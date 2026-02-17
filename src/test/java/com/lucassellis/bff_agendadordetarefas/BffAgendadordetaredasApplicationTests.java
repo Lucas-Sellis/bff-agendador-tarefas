@@ -1,4 +1,4 @@
-package com.lucassellis.bff_agendadordetaredas;
+package com.lucassellis.bff_agendadordetarefas;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

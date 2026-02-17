@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lucassellis</groupId>
-	<artifactId>bff-agendadordetaredas</artifactId>
+	<artifactId>bff-agendadordetarefas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bff-agendadordetaredas</name>
+	<name>bff-agendadordetarefas</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -50,6 +50,19 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>3.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-hc5</artifactId>
+            <version>13.6</version>
+            <scope>compile</scope>
+        </dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
