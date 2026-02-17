@@ -8,6 +8,7 @@ import com.lucassellis.bff_agendadordetarefas.business.dto.in.UsuarioDTORequest;
 import com.lucassellis.bff_agendadordetarefas.business.dto.out.EnderecoDTOResponse;
 import com.lucassellis.bff_agendadordetarefas.business.dto.out.TelefoneDTOResponse;
 import com.lucassellis.bff_agendadordetarefas.business.dto.out.UsuarioDTOResponse;
+import com.lucassellis.bff_agendadordetarefas.business.dto.out.ViaCepDTOResponse;
 import com.lucassellis.bff_agendadordetarefas.infrastructure.client.UsuarioClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -69,6 +70,9 @@ public class UsuarioService {
     }
 
 
+    public ViaCepDTOResponse buscarEnderecoPorCep(String cep){
 
+        return client.buscarDadosCep(cep);
+    }
 
 }
