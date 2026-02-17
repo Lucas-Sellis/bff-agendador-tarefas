@@ -7,7 +7,9 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
+//  git add .
+//git commit -m "test: trigger CI"
+//  git push origin develop
 
 public class EnderecoDTORequest {
 
