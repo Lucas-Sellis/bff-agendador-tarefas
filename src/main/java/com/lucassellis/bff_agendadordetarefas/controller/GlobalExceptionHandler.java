@@ -2,6 +2,7 @@ package com.lucassellis.bff_agendadordetarefas.controller;
 
 
 import com.lucassellis.bff_agendadordetarefas.infrastructure.exceptions.ConflictException;
+import com.lucassellis.bff_agendadordetarefas.infrastructure.exceptions.IllegalArgumentException;
 import com.lucassellis.bff_agendadordetarefas.infrastructure.exceptions.ResourceNotFoundException;
 import com.lucassellis.bff_agendadordetarefas.infrastructure.exceptions.UnauthorizedException;
 import org.springframework.http.HttpStatus;
@@ -25,6 +26,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(UnauthorizedException.class)
     public ResponseEntity<String> handleUnauthorizedtException(UnauthorizedException ex){
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public  ResponseEntity<String>IllegalArgumentException(IllegalArgumentException ex){
+        return  new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
 
