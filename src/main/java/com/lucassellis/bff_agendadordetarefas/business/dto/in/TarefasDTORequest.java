@@ -1,7 +1,6 @@
 package com.lucassellis.bff_agendadordetarefas.business.dto.in;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.lucassellis.bff_agendadordetarefas.business.enums.StatusNotificacaoEnum;
 import lombok.*;
 
 import java.time.LocalDateTime;
